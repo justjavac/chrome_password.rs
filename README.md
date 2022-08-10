@@ -1,6 +1,6 @@
 # chrome_password
 
-~~Steal~~ Get username & password from Chrome. (Now Only Windows)
+~~Steal~~ Get username & password from Chrome. (**Now Only Windows**)
 
 ## Installation
 
