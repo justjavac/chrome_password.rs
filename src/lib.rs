@@ -3,7 +3,9 @@ use aes_gcm::aead::Aead;
 use aes_gcm::{Aes256Gcm, KeyInit};
 use serde_json::from_str;
 use tempdir::TempDir;
+#[cfg(windows)]
 use winapi::um::dpapi::CryptUnprotectData;
+#[cfg(windows)]
 use winapi::um::wincrypt::CRYPTOAPI_BLOB;
 
 pub fn get_master_key(local_state_path: &std::path::PathBuf) -> Vec<u8> {
@@ -51,6 +53,7 @@ pub fn aes_256_gcm_decrypt(key: &[u8], data: Vec<u8>) -> Vec<u8> {
 /// Decrypts data using [`CryptUnprotectData`][1].
 ///
 /// [1]: https://docs.microsoft.com/en-us/windows/win32/api/dpapi/nf-dpapi-cryptunprotectdata
+#[cfg(windows)]
 pub fn win32_crypt_unprotect_data(mut encrypted_key: Vec<u8>) -> Vec<u8> {
   let mut in_data = CRYPTOAPI_BLOB {
     cbData: encrypted_key.len() as u32,
@@ -74,4 +77,9 @@ pub fn win32_crypt_unprotect_data(mut encrypted_key: Vec<u8>) -> Vec<u8> {
 
     Vec::from_raw_parts(out_data.pbData, out_data.cbData as usize, out_data.cbData as usize)
   }
+}
+
+#[cfg(not(windows))]
+pub fn win32_crypt_unprotect_data(mut _encrypted_key: Vec<u8>) -> Vec<u8> {
+  panic!("Not implemented on this platform");
 }
