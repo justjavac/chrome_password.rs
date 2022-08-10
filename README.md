@@ -56,5 +56,5 @@ fn main() {
 
 ## License
 
-Deno Version Manager(dvm) is released under the MIT License. See the bundled
+chrome_password is released under the MIT License. See the bundled
 [LICENSE](./LICENSE) file for details.
