@@ -33,7 +33,7 @@ Add this to your `Cargo.toml`:
 
 ```toml
 [dependencies]
-chrome_password = "0.1"
+chrome_password = "0.2"
 ```
 
 Code:
