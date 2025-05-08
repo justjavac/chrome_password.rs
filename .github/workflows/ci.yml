@@ -42,7 +42,7 @@ jobs:
           echo "CARGO_HOME=$(pwd)/.cargo_home" >> $GITHUB_ENV
 
       - name: Cache
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           # Note: crates from the denoland/deno git repo always get rebuilt,
           # and their outputs ('deno', 'libdeno.rlib' etc.) are quite big,
