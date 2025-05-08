@@ -1,5 +1,5 @@
-use aes_gcm::aead::generic_array::GenericArray;
 use aes_gcm::aead::Aead;
+use aes_gcm::aead::generic_array::GenericArray;
 use aes_gcm::{Aes256Gcm, KeyInit};
 use serde_json::from_str;
 use tempdir::TempDir;
