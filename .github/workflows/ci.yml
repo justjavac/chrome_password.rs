@@ -27,11 +27,6 @@ jobs:
           override: true
           components: rustfmt, clippy
 
-      - name: Install clippy and rustfmt
-        run: |
-          rustup component add clippy
-          rustup component add rustfmt
-
       - name: Log versions
         run: |
           rustc --version
