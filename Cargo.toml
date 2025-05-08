@@ -1,6 +1,6 @@
 [package]
 name = "chrome_password"
-version = "0.2.0"
+version = "0.2.1"
 description = "Get username & password from Chrome."
 repository = "https://github.com/justjavac/chrome_password.rs"
 keywords = ["chrome", "hack", "password", "utils"]
